@@ -148,7 +148,7 @@ def poly_eval(p, x):
         return 0 # skip zeros
     result = p[-1] #this is the highest degree coeff since  p = [1, 0 ,2, 3] = 1+2x^2+3x^3 so p[-1] = 3
     for i in range(len(p) - 2, -1, -1): #go DOWN towards i=0
-        result = mul(result, x) ^ p[i] # stack the results, "^" acts as addition in the field
+        result = mul(result, x) ^ p[i] # stack the results, "^" acts as addition in this field
     return result
 
 def poly_divmod(num, den):

@@ -38,7 +38,6 @@ def _build_tables():
 
 _build_tables()
 
-
 """
 Then we have a bunch of field operations for the polynomial arithmatic
 
@@ -128,7 +127,10 @@ def poly_scale(p, c):
     return result
 
 def poly_mul(p, q):
-    """Multiply two polynomials over GF(2^8); is essentially convolution. Multiplying a degree m polynomial by a degree n polynomial gives degree m+n, so the result has m+n+1 coefficients"""
+    """
+    Multiply two polynomials over GF(2^8); is essentially convolution. Multiplying a degree m polynomial 
+    by a degree n polynomial gives degree m+n, so the result has m+n+1 coefficients
+    """
     if not p or not q: 
         return [0]
     result = [0] * (len(p) + len(q) - 1) #degree of resulting polynomial
@@ -188,7 +190,7 @@ def poly_deriv(p):
  
     In characteristic 2, d/dx(x^i) = x^(i-1) if i is odd, else 0.
 
-    In GF(p) for odd p you'd multiply each coefficient by i mod p; in GF(2ⁿ) the factor is always 0 or 1
+    In GF(p) for odd p you'd multiply each coefficient by i mod p; in GF(2^n) the factor is always 0 or 1
     """
     if len(p) <= 1: 
         return [0] # derivative of constant is zero
